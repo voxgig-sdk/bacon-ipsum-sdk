@@ -1,0 +1,28 @@
+# BasicTextGenerationFlow
+
+main: kit: flow: BasicTextGenerationFlow:
+{
+  entity: "text_generation",
+  kind: "basic",
+  name: "BasicTextGenerationFlow",
+  step: [
+    {
+      input: {
+        ref: "text_generation_ref01",
+        srcdatavar: "text_generation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-text_generation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTextGenerationFlow"
+}

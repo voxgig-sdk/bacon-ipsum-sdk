@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://baconipsum.com/json-api/"
+      }
+      description: "The Bacon Ipsum JSON API is a REST interface for generating meaty lorem ipsum text that can be utilized by any application. Users can specify parameters such as type of text, number of paragraphs, and format to get tailored responses."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://baconipsum.com"
+        }
+      ]
+      title: "Bacon Ipsum API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

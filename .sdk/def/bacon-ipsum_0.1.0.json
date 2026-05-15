@@ -1,0 +1,182 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bacon Ipsum API",
+    "description": "The Bacon Ipsum JSON API is a REST interface for generating meaty lorem ipsum text that can be utilized by any application. Users can specify parameters such as type of text, number of paragraphs, and format to get tailored responses.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://baconipsum.com/json-api/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://baconipsum.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/": {
+      "get": {
+        "summary": "Generate bacon ipsum text",
+        "description": "Generates meaty lorem ipsum text with customizable parameters. Returns a JSON array of paragraphs by default.",
+        "operationId": "generateBaconIpsum",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of text generation: 'all-meat' for meat only or 'meat-and-filler' for meat mixed with miscellaneous lorem ipsum filler",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all-meat",
+                "meat-and-filler"
+              ],
+              "default": "meat-and-filler"
+            }
+          },
+          {
+            "name": "paras",
+            "in": "query",
+            "description": "Number of paragraphs to generate",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "sentences",
+            "in": "query",
+            "description": "Number of sentences to generate (this overrides the paras parameter)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "start-with-lorem",
+            "in": "query",
+            "description": "Pass 1 to start the first paragraph with 'Bacon ipsum dolor sit amet'",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "default": 0
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format for the generated text",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "text",
+                "html"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback function name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully generated bacon ipsum text",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Array of paragraphs when format is 'json'"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Plain text string when format is 'text' or 'html'"
+                    }
+                  ]
+                },
+                "examples": {
+                  "jsonFormat": {
+                    "summary": "JSON format response",
+                    "value": [
+                      "Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.",
+                      "Shankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage.",
+                      "Bresaola andouille pork loin fatback, chuck short loin tri-tip ham hock venison beef hamburger pork chop."
+                    ]
+                  },
+                  "meatAndFiller": {
+                    "summary": "Meat and filler type",
+                    "value": [
+                      "Bacon ipsum dolor sit amet beef ribs chuck turkey, prosciutto ham hock venison lorem dolor.",
+                      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    ]
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.\n\nShankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage."
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "<p>Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.</p><p>Shankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage.</p>"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Text Generation"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Text Generation",
+      "description": "Operations for generating bacon-themed lorem ipsum text"
+    }
+  ],
+  "externalDocs": {
+    "description": "Bacon Ipsum JSON API Documentation",
+    "url": "https://baconipsum.com/json-api/"
+  }
+}

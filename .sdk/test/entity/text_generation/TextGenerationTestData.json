@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "text_generation": {
+      "TEXT_GENERATION00": {},
+      "TEXT_GENERATION01": {},
+      "TEXT_GENERATION02": {}
+    }
+  },
+  "new": {
+    "text_generation": {
+      "text_generation_ref01": {}
+    }
+  }
+}
