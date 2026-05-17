@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/bacon-ipsum-sdk"
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/core"
+	sdk "github.com/voxgig-sdk/bacon-ipsum-sdk/go"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/core"
 )
 
 func TestTextGenerationDirect(t *testing.T) {

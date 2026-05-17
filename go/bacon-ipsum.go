@@ -1,10 +1,10 @@
 package voxgigbaconipsumsdk
 
 import (
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/core"
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/entity"
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/feature"
-	_ "github.com/voxgig-sdk/bacon-ipsum-sdk/utility"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/core"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/entity"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/feature"
+	_ "github.com/voxgig-sdk/bacon-ipsum-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

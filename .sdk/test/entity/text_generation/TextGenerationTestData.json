@@ -1,9 +1,15 @@
 {
   "existing": {
     "text_generation": {
-      "TEXT_GENERATION00": {},
-      "TEXT_GENERATION01": {},
-      "TEXT_GENERATION02": {}
+      "TEXT_GENERATION00": {
+        "id": "TEXT_GENERATION00"
+      },
+      "TEXT_GENERATION01": {
+        "id": "TEXT_GENERATION01"
+      },
+      "TEXT_GENERATION02": {
+        "id": "TEXT_GENERATION02"
+      }
     }
   },
   "new": {

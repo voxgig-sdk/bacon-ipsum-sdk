@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/core"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/core"
 )
 
 type BaseFeature struct {

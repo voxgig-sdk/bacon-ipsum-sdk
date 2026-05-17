@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/bacon-ipsum-sdk/core"
+	"github.com/voxgig-sdk/bacon-ipsum-sdk/go/core"
 )
 
 type LogFeature struct {

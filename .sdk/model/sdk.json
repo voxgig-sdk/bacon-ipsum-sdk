@@ -206,6 +206,9 @@
             },
             "rb": {
               "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
             }
           }
         }
@@ -243,6 +246,33 @@
         }
       },
       "target": {
+        "go-cli": {
+          "title": "Go CLI",
+          "ext": "go",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "bacon-ipsum"
+          },
+          "phase": {
+            "entity": {
+              "active": false
+            },
+            "feature": {
+              "active": false
+            },
+            "readme": {
+              "active": false
+            },
+            "test": {
+              "active": false
+            }
+          },
+          "deps": {},
+          "name": "go-cli",
+          "active": true
+        },
         "ts": {
           "title": "TypeScript",
           "ext": "ts",
@@ -283,14 +313,7 @@
             "name": "bacon-ipsum"
           },
           "srcfeature": false,
-          "deps": {
-            "github.com/voxgig/struct": {
-              "active": true,
-              "version": "v0.0.0",
-              "replace": "./utility/struct",
-              "kind": "prod"
-            }
-          },
+          "deps": {},
           "name": "go",
           "active": true
         },
@@ -378,15 +401,6 @@
     },
     "def": {
       "desc": ""
-    },
-    "api": {
-      "guide": {},
-      "entity": {}
     }
-  },
-  "name__orig": "bacon-ipsum",
-  "Name": "BaconIpsum",
-  "name_": "bacon_ipsum",
-  "name-": "bacon-ipsum",
-  "NAME": "BACON-IPSUM"
+  }
 }

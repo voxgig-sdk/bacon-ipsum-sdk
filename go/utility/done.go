@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/bacon-ipsum-sdk/core"
+import "github.com/voxgig-sdk/bacon-ipsum-sdk/go/core"
 
 func doneUtil(ctx *core.Context) (any, error) {
 	if ctx.Ctrl.Explain != nil {
