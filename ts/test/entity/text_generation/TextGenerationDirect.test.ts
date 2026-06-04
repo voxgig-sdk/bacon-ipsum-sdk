@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'BACONIPSUM_TEST_TEXT_GENERATION_ENTID': {},
     'BACONIPSUM_TEST_LIVE': 'FALSE',
-    'BACONIPSUM_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.BACONIPSUM_TEST_LIVE
 
   if (live) {
     const client = new BaconIpsumSDK({
-      apikey: env.BACONIPSUM_APIKEY,
     })
 
     let idmap: any = env['BACONIPSUM_TEST_TEXT_GENERATION_ENTID']

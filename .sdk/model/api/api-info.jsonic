@@ -16,8 +16,29 @@ main: {
       ]
       title: "Bacon Ipsum API"
       version: "1.0.0"
+      tagline: "Generate meat-themed lorem ipsum filler text as JSON, plain text, or HTML"
+      homepage: "https://baconipsum.com"
+      docs_url: "https://baconipsum.com/json-api/"
+      license_short: "No formal licence stated; free public API with no authentication"
+      license_md: `- No explicit licence terms are published on the Bacon Ipsum site or its API docs.
+- The service is publicly accessible without an API key or sign-up.
+- Attribution is not required, but linking back to [baconipsum.com](https://baconipsum.com) is a friendly courtesy.
+- Treat usage as best-effort; no SLA or rate-limit policy is documented.`
+      about_md: `[Bacon Ipsum](https://baconipsum.com) is a placeholder-text generator created by Pete Nelson that swaps the usual Latin lorem ipsum for a list of meaty words. The [JSON API](https://baconipsum.com/json-api/) wraps the same generator behind a single REST endpoint so any application can request filler copy on demand.
+
+What you get from the API:
+
+- A single \`GET https://baconipsum.com/api/\` endpoint that returns generated paragraphs.
+- A \`type\` parameter (\`all-meat\` or \`meat-and-filler\`) to control the word mix.
+- A \`paras\` parameter for paragraph count, or \`sentences\` to request a specific sentence count instead.
+- A \`start-with-lorem=1\` flag to begin output with the classic "Bacon ipsum dolor sit amet" opener.
+- A \`format\` parameter (\`json\`, \`text\`, or \`html\`) and a \`callback\` parameter for JSONP.
+
+The API is publicly reachable without authentication and CORS is enabled, so it can be called directly from browser code. No rate limits or licence terms are published; the underlying generator is also distributed as the open-source [Any Ipsum](https://github.com/petenelson/wp-any-ipsum) WordPress plugin.`
+      entity_desc: {
+        text_generation: "Generated meat-themed placeholder text returned as a JSON array of paragraphs (or plain text / HTML) from `GET /api/` with parameters like `type`, `paras`, `sentences`, `start-with-lorem`, and `format`."
+      }
+      auth: false
     }
   }
-}
-
 }

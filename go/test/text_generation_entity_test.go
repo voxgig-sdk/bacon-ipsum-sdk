@@ -117,7 +117,6 @@ func text_generationBasicSetup(extra map[string]any) *entityTestSetup {
 		"BACONIPSUM_TEST_TEXT_GENERATION_ENTID": idmap,
 		"BACONIPSUM_TEST_LIVE":      "FALSE",
 		"BACONIPSUM_TEST_EXPLAIN":   "FALSE",
-		"BACONIPSUM_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["BACONIPSUM_TEST_TEXT_GENERATION_ENTID"])
@@ -128,7 +127,6 @@ func text_generationBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["BACONIPSUM_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["BACONIPSUM_APIKEY"],
 			},
 			extra,
 		})

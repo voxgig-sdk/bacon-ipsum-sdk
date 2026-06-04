@@ -20,9 +20,6 @@ class BaconIpsumConfig
             ],
             "options" => [
                 "base" => "https://baconipsum.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

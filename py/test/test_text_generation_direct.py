@@ -59,14 +59,12 @@ def _text_generation_direct_setup(mockres):
     env = runner.env_override({
         "BACONIPSUM_TEST_TEXT_GENERATION_ENTID": {},
         "BACONIPSUM_TEST_LIVE": "FALSE",
-        "BACONIPSUM_APIKEY": "NONE",
     })
 
     live = env.get("BACONIPSUM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("BACONIPSUM_APIKEY"),
         }
         client = BaconIpsumSDK(merged_opts)
         return {
