@@ -20,6 +20,9 @@ class BaconIpsumConfig
             ],
             "options" => [
                 "base" => "https://baconipsum.com",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -33,62 +36,64 @@ class BaconIpsumConfig
           'name' => 'text_generation',
           'op' => [
             'load' => [
+              'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'callback',
                         'orig' => 'callback',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => 'json',
                         'kind' => 'query',
                         'name' => 'format',
                         'orig' => 'format',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => 5,
                         'kind' => 'query',
                         'name' => 'para',
                         'orig' => 'para',
                         'reqd' => false,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sentence',
                         'orig' => 'sentence',
                         'reqd' => false,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => 0,
                         'kind' => 'query',
                         'name' => 'start_with_lorem',
                         'orig' => 'start_with_lorem',
                         'reqd' => false,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => 'meat-and-filler',
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -111,11 +116,9 @@ class BaconIpsumConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'load',
             ],
           ],

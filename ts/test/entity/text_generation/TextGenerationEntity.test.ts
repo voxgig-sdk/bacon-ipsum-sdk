@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'BACON_IPSUM_TEST_TEXT_GENERATION_ENTID': idmap,
     'BACON_IPSUM_TEST_LIVE': 'FALSE',
     'BACON_IPSUM_TEST_EXPLAIN': 'FALSE',
+    'BACON_IPSUM_APIKEY': 'NONE',
   })
 
   idmap = env['BACON_IPSUM_TEST_TEXT_GENERATION_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new BaconIpsumSDK(merge([
       {
+        apikey: env.BACON_IPSUM_APIKEY,
       },
       extra
     ]))

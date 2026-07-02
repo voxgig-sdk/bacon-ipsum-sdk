@@ -99,12 +99,14 @@ func text_generationDirectSetup(mockres any) *text_generationDirectSetupResult {
 	env := envOverride(map[string]any{
 		"BACONIPSUM_TEST_TEXT_GENERATION_ENTID": map[string]any{},
 		"BACONIPSUM_TEST_LIVE":    "FALSE",
+		"BACONIPSUM_APIKEY":       "NONE",
 	})
 
 	live := env["BACONIPSUM_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["BACONIPSUM_APIKEY"],
 		}
 		client := sdk.NewBaconIpsumSDK(mergedOpts)
 

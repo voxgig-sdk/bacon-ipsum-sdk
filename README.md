@@ -1,22 +1,8 @@
 # BaconIpsum SDK
 
-Generate meat-themed lorem ipsum filler text as JSON, plain text, or HTML
+Bacon Ipsum API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Bacon Ipsum API
-
-[Bacon Ipsum](https://baconipsum.com) is a placeholder-text generator created by Pete Nelson that swaps the usual Latin lorem ipsum for a list of meaty words. The [JSON API](https://baconipsum.com/json-api/) wraps the same generator behind a single REST endpoint so any application can request filler copy on demand.
-
-What you get from the API:
-
-- A single `GET https://baconipsum.com/api/` endpoint that returns generated paragraphs.
-- A `type` parameter (`all-meat` or `meat-and-filler`) to control the word mix.
-- A `paras` parameter for paragraph count, or `sentences` to request a specific sentence count instead.
-- A `start-with-lorem=1` flag to begin output with the classic "Bacon ipsum dolor sit amet" opener.
-- A `format` parameter (`json`, `text`, or `html`) and a `callback` parameter for JSONP.
-
-The API is publicly reachable without authentication and CORS is enabled, so it can be called directly from browser code. No rate limits or licence terms are published; the underlying generator is also distributed as the open-source [Any Ipsum](https://github.com/petenelson/wp-any-ipsum) WordPress plugin.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install bacon-ipsum-sdk
 luarocks install bacon-ipsum-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { BaconIpsumSDK } from 'bacon-ipsum'
 
-const client = new BaconIpsumSDK({})
+const client = new BaconIpsumSDK({
+  apikey: process.env.BACON-IPSUM_APIKEY,
+})
 
+// Load textgeneration data
+const textgeneration = await client.TextGeneration().load({})
+console.log(textgeneration.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **TextGeneration** | Generated meat-themed placeholder text returned as a JSON array of paragraphs (or plain text / HTML) from `GET /api/` with parameters like `type`, `paras`, `sentences`, `start-with-lorem`, and `format`. | `/api/` |
+| **TextGeneration** |  | `/api/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from baconipsum_sdk import BaconIpsumSDK
 
-client = BaconIpsumSDK({})
+client = BaconIpsumSDK({
+    "apikey": os.environ.get("BACON-IPSUM_APIKEY"),
+})
 
 
 # Load a specific textgeneration
-textgeneration, err = client.TextGeneration(None).load(
-    {"id": "example_id"}, None
-)
+textgeneration, err = client.TextGeneration().load({"id": "example_id"})
+print(textgeneration)
 ```
 
 ### PHP
@@ -127,13 +119,14 @@ textgeneration, err = client.TextGeneration(None).load(
 <?php
 require_once 'baconipsum_sdk.php';
 
-$client = new BaconIpsumSDK([]);
+$client = new BaconIpsumSDK([
+    "apikey" => getenv("BACON-IPSUM_APIKEY"),
+]);
 
 
 // Load a specific textgeneration
-[$textgeneration, $err] = $client->TextGeneration(null)->load(
-    ["id" => "example_id"], null
-);
+[$textgeneration, $err] = $client->TextGeneration()->load(["id" => "example_id"]);
+print_r($textgeneration);
 ```
 
 ### Golang
@@ -141,8 +134,13 @@ $client = new BaconIpsumSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/bacon-ipsum-sdk/go"
 
-client := sdk.NewBaconIpsumSDK(map[string]any{})
+client := sdk.NewBaconIpsumSDK(map[string]any{
+    "apikey": os.Getenv("BACON-IPSUM_APIKEY"),
+})
 
+// Load textgeneration data
+textgeneration, err := client.TextGeneration(nil).Load(map[string]any{}, nil)
+fmt.Println(textgeneration)
 ```
 
 ### Ruby
@@ -150,13 +148,14 @@ client := sdk.NewBaconIpsumSDK(map[string]any{})
 ```ruby
 require_relative "BaconIpsum_sdk"
 
-client = BaconIpsumSDK.new({})
+client = BaconIpsumSDK.new({
+  "apikey" => ENV["BACON-IPSUM_APIKEY"],
+})
 
 
 # Load a specific textgeneration
-textgeneration, err = client.TextGeneration(nil).load(
-  { "id" => "example_id" }, nil
-)
+textgeneration, err = client.TextGeneration().load({ "id" => "example_id" })
+puts textgeneration
 ```
 
 ### Lua
@@ -164,13 +163,14 @@ textgeneration, err = client.TextGeneration(nil).load(
 ```lua
 local sdk = require("bacon-ipsum_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("BACON-IPSUM_APIKEY"),
+})
 
 
 -- Load a specific textgeneration
-local textgeneration, err = client:TextGeneration(nil):load(
-  { id = "example_id" }, nil
-)
+local textgeneration, err = client:TextGeneration():load({ id = "example_id" })
+print(textgeneration)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +189,21 @@ const result = await client.TextGeneration().load({ id: 'test01' })
 ### Python
 
 ```python
-client = BaconIpsumSDK.test(None, None)
-result, err = client.TextGeneration(None).load(
-    {"id": "test01"}, None
-)
+client = BaconIpsumSDK.test()
+result, err = client.TextGeneration().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = BaconIpsumSDK::test(null, null);
-[$result, $err] = $client->TextGeneration(null)->load(
-    ["id" => "test01"], null
-);
+$client = BaconIpsumSDK::test();
+[$result, $err] = $client->TextGeneration()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.TextGeneration(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +212,15 @@ result, err := client.TextGeneration(nil).Load(
 ### Ruby
 
 ```ruby
-client = BaconIpsumSDK.test(nil, nil)
-result, err = client.TextGeneration(nil).load(
-  { "id" => "test01" }, nil
-)
+client = BaconIpsumSDK.test
+result, err = client.TextGeneration().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:TextGeneration(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:TextGeneration():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Bacon Ipsum API
-
-- Upstream: [https://baconipsum.com](https://baconipsum.com)
-- API docs: [https://baconipsum.com/json-api/](https://baconipsum.com/json-api/)
-
-- No explicit licence terms are published on the Bacon Ipsum site or its API docs.
-- The service is publicly accessible without an API key or sign-up.
-- Attribution is not required, but linking back to [baconipsum.com](https://baconipsum.com) is a friendly courtesy.
-- Treat usage as best-effort; no SLA or rate-limit policy is documented.
 
 ---
 
