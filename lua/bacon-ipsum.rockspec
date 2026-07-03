@@ -8,12 +8,14 @@ source = {
   dir = "bacon-ipsum-sdk/lua"
 }
 description = {
-  summary = "BaconIpsum SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Bacon Ipsum public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/bacon-ipsum-sdk",
+  issues_url = "https://github.com/voxgig-sdk/bacon-ipsum-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "bacon-ipsum" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

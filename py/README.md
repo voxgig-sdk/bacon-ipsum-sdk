@@ -10,7 +10,7 @@ The Python SDK for the BaconIpsum API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install bacon-ipsum-sdk
+pip install voxgig-sdk-bacon-ipsum
 ```
 
 Or install from source:

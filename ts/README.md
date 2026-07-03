@@ -10,7 +10,7 @@ The TypeScript SDK for the BaconIpsum API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install bacon-ipsum
+npm install @voxgig-sdk/bacon-ipsum
 ```
 ## Tutorial: your first API call
 

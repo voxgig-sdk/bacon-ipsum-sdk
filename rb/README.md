@@ -10,13 +10,13 @@ The Ruby SDK for the BaconIpsum API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install bacon-ipsum-sdk
+gem install voxgig-sdk-bacon-ipsum
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "bacon-ipsum-sdk"
+gem "voxgig-sdk-bacon-ipsum"
 ```
 
 Then run:

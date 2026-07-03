@@ -10,7 +10,7 @@ The Lua SDK for the BaconIpsum API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install bacon-ipsum-sdk
+luarocks install voxgig-sdk-bacon-ipsum
 ```
 
 If the module is not yet published, add the source directory to

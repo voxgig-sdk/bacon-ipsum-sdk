@@ -10,7 +10,7 @@ The PHP SDK for the BaconIpsum API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/bacon-ipsum-sdk
+composer require voxgig-sdk/bacon-ipsum
 ```
 
 
