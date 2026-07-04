@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `BaconIpsumSDK.test()`.
 ## TextGenerationEntity
 
 ```ts
-const text_generation = client.TextGeneration()
+const text_generation = client.text_generation
 ```
 
 ### Operations
@@ -120,7 +119,7 @@ const text_generation = client.TextGeneration()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TextGeneration().load({ id: 'text_generation_id' })
+const result = await client.text_generation.load({ id: 'text_generation_id' })
 ```
 
 ### Common Methods

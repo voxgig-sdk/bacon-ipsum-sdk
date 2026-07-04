@@ -245,6 +245,9 @@ func (sdk *BaconIpsumSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// TextGeneration returns a TextGeneration entity bound to this client.
+// Idiomatic usage: client.TextGeneration(nil).List(nil, nil) or
+// client.TextGeneration(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *BaconIpsumSDK) TextGeneration(data map[string]any) BaconIpsumEntity {
 	return NewTextGenerationEntityFunc(sdk, data)
 }

@@ -49,8 +49,7 @@ class TestTextGenerationEntity:
         # LOAD
         text_generation_ref01_ent = client.TextGeneration(None)
         text_generation_ref01_match_dt0 = {}
-        text_generation_ref01_data_dt0_loaded, err = text_generation_ref01_ent.load(text_generation_ref01_match_dt0, None)
-        assert err is None
+        text_generation_ref01_data_dt0_loaded = text_generation_ref01_ent.load(text_generation_ref01_match_dt0, None)
         assert text_generation_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _text_generation_basic_setup(extra):
         "BACONIPSUM_TEST_TEXT_GENERATION_ENTID": idmap,
         "BACONIPSUM_TEST_LIVE": "FALSE",
         "BACONIPSUM_TEST_EXPLAIN": "FALSE",
-        "BACONIPSUM_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _text_generation_basic_setup(extra):
     if env.get("BACONIPSUM_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("BACONIPSUM_APIKEY"),
             },
             extra or {},
         ])

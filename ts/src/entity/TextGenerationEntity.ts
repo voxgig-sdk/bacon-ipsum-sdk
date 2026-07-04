@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  TextGeneration,
+  TextGenerationLoadMatch,
+} from '../BaconIpsumTypes'
 
 // TODO: needs Entity superclass
-class TextGenerationEntity extends BaconIpsumEntityBase {
+class TextGenerationEntity extends BaconIpsumEntityBase<TextGeneration> {
 
   constructor(client: BaconIpsumSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class TextGenerationEntity extends BaconIpsumEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: TextGenerationLoadMatch, ctrl?: Control): Promise<TextGeneration> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class TextGenerationEntity extends BaconIpsumEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<TextGeneration> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## TextGenerationEntity
 
 ```lua
-local text_generation = client:TextGeneration(nil)
+local text_generation = client:text_generation(nil)
 ```
 
 ### Operations
@@ -94,7 +93,7 @@ local text_generation = client:TextGeneration(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TextGeneration():load({ id = "text_generation_id" })
+local result, err = client:text_generation():load({ id = "text_generation_id" })
 ```
 
 ### Common Methods

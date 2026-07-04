@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TextGenerationLoadMatch
+---@param ctrl? table
+---@return TextGeneration
+---@return string? err
 function TextGenerationEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

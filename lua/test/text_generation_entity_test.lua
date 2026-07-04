@@ -91,7 +91,6 @@ function text_generation_basic_setup(extra)
     ["BACONIPSUM_TEST_TEXT_GENERATION_ENTID"] = idmap,
     ["BACONIPSUM_TEST_LIVE"] = "FALSE",
     ["BACONIPSUM_TEST_EXPLAIN"] = "FALSE",
-    ["BACONIPSUM_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function text_generation_basic_setup(extra)
   if env["BACONIPSUM_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["BACONIPSUM_APIKEY"],
       },
       extra or {},
     })
