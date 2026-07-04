@@ -220,25 +220,15 @@ class BaconIpsumSDK:
         }
 
 
-    @property
-    def text_generation(self):
-        """Idiomatic facade: client.text_generation.list() / client.text_generation.load({"id": ...})."""
-        from entity.text_generation_entity import TextGenerationEntity
-        cached = getattr(self, "_text_generation", None)
-        if cached is None:
-            cached = TextGenerationEntity(self, None)
-            self._text_generation = cached
-        return cached
-
-    def TextGeneration(self, data=None):
-        # Deprecated: use client.text_generation instead.
+    def TextGeneration(self, data=None) -> "TextGenerationEntity":
+        """Entity factory: client.TextGeneration().list({}) / client.TextGeneration().load({"id": ...})."""
         from entity.text_generation_entity import TextGenerationEntity
         return TextGenerationEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "BaconIpsumSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class BaconIpsumSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.text_generation_entity import TextGenerationEntity

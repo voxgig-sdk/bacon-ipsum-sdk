@@ -33,9 +33,10 @@ $client = new BaconIpsumSDK();
 
 ```php
 try {
-    $result = $client->textgeneration()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare TextGeneration record (throws on error).
+    $textgeneration = $client->TextGeneration()->load(["id" => "example_id"]);
+    print_r($textgeneration);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = BaconIpsumSDK::test();
+$client = BaconIpsumSDK::test([
+    "entity" => ["textgeneration" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->textgeneration()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$textgeneration = $client->TextGeneration()->load(["id" => "test01"]);
+print_r($textgeneration);
 ```
 
 ### Use a custom fetch function
@@ -222,7 +227,7 @@ API path: `/api/`
 
 ### TextGeneration
 
-Create an instance: `const text_generation = client.text_generation`
+Create an instance: `$text_generation = $client->TextGeneration();`
 
 #### Operations
 
@@ -232,8 +237,9 @@ Create an instance: `const text_generation = client.text_generation`
 
 #### Example: Load
 
-```ts
-const text_generation = await client.text_generation.load({ id: 'text_generation_id' })
+```php
+// load() returns the bare TextGeneration record (throws on error).
+$text_generation = $client->TextGeneration()->load(["id" => "text_generation_id"]);
 ```
 
 
@@ -308,7 +314,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$textgeneration = $client->textgeneration();
+$textgeneration = $client->TextGeneration();
 $textgeneration->load(["id" => "example_id"]);
 
 // $textgeneration->dataGet() now returns the loaded textgeneration data

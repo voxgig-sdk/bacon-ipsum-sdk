@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## TextGenerationEntity
 
 ```php
-$text_generation = $client->text_generation();
+$text_generation = $client->TextGeneration();
 ```
 
 ### Operations
@@ -95,7 +95,7 @@ $text_generation = $client->text_generation();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->text_generation()->load(["id" => "text_generation_id"]);
+$result = $client->TextGeneration()->load(["id" => "text_generation_id"]);
 ```
 
 ### Common Methods

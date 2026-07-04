@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:text_generation():list() / client:text_generation():load({ id = ... })
-function BaconIpsumSDK:text_generation(data)
+-- Idiomatic facade: client:TextGeneration():list() / client:TextGeneration():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function BaconIpsumSDK:TextGeneration(data)
   local EntityMod = require("entity.text_generation_entity")
   if data == nil then
     if self._text_generation == nil then
@@ -253,12 +254,6 @@ function BaconIpsumSDK:text_generation(data)
     end
     return self._text_generation
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:text_generation() instead.
-function BaconIpsumSDK:TextGeneration(data)
-  local EntityMod = require("entity.text_generation_entity")
   return EntityMod.new(self, data)
 end
 

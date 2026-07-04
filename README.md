@@ -26,9 +26,9 @@ import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum'
 
 const client = new BaconIpsumSDK()
 
-// Load textgeneration data
-const textgeneration = await client.textgeneration.load({})
-console.log(textgeneration.data)
+// Load textgeneration data (returns a TextGeneration)
+const textgeneration = await client.TextGeneration().load()
+console.log(textgeneration)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from baconipsum_sdk import BaconIpsumSDK
 client = BaconIpsumSDK()
 
 
-# Load a specific textgeneration
-textgeneration = client.textgeneration.load({"id": "example_id"})
+# Load a specific textgeneration (returns the record, raises on error)
+textgeneration = client.TextGeneration().load({"id": "example_id"})
 print(textgeneration)
 ```
 
@@ -98,8 +98,8 @@ require_once 'baconipsum_sdk.php';
 $client = new BaconIpsumSDK();
 
 
-// Load a specific textgeneration
-$textgeneration = $client->textgeneration()->load(["id" => "example_id"]);
+// Load a specific textgeneration (returns the bare record; throws on error)
+$textgeneration = $client->TextGeneration()->load(["id" => "example_id"]);
 print_r($textgeneration);
 ```
 
@@ -123,8 +123,8 @@ require_relative "BaconIpsum_sdk"
 client = BaconIpsumSDK.new
 
 
-# Load a specific textgeneration
-textgeneration = client.textgeneration.load({ "id" => "example_id" })
+# Load a specific textgeneration (returns the bare record; raises on error)
+textgeneration = client.TextGeneration.load({ "id" => "example_id" })
 puts textgeneration
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific textgeneration
-local textgeneration, err = client:textgeneration():load({ id = "example_id" })
+local textgeneration, err = client:TextGeneration():load({ id = "example_id" })
 print(textgeneration)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = BaconIpsumSDK.test()
-const result = await client.textgeneration.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const textgeneration = await client.TextGeneration().load({ id: 'test01' })
+// textgeneration is a bare TextGeneration populated with mock data
+console.log(textgeneration)
 ```
 
 ### Python
 
 ```python
 client = BaconIpsumSDK.test()
-result = client.textgeneration.load({"id": "test01"})
+textgeneration = client.TextGeneration().load({"id": "test01"})
+print(textgeneration)
 ```
 
 ### PHP
 
 ```php
-$client = BaconIpsumSDK::test();
-$result = $client->textgeneration()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = BaconIpsumSDK::test([
+    "entity" => ["textgeneration" => ["test01" => ["id" => "test01"]]],
+]);
+$textgeneration = $client->TextGeneration()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.TextGeneration(nil).Load(
 ### Ruby
 
 ```ruby
-client = BaconIpsumSDK.test
-result = client.textgeneration.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = BaconIpsumSDK.test({
+  "entity" => { "textgeneration" => { "test01" => { "id" => "test01" } } },
+})
+textgeneration = client.TextGeneration.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:textgeneration():load({ id = "test01" })
+local result, err = client:TextGeneration():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

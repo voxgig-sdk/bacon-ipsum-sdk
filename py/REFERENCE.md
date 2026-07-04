@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## TextGenerationEntity
 
 ```python
-text_generation = client.text_generation
+text_generation = client.TextGeneration()
 ```
 
 ### Operations
@@ -90,7 +90,7 @@ text_generation = client.text_generation
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.text_generation.load({"id": "text_generation_id"})
+result = client.TextGeneration().load({"id": "text_generation_id"})
 ```
 
 ### Common Methods

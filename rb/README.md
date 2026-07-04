@@ -32,8 +32,9 @@ client = BaconIpsumSDK.new
 
 ```ruby
 begin
-  result = client.textgeneration.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare TextGeneration record (raises on error).
+  textgeneration = client.TextGeneration.load({ "id" => "example_id" })
+  puts textgeneration
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = BaconIpsumSDK.test
+client = BaconIpsumSDK.test({
+  "entity" => { "textgeneration" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.textgeneration.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+textgeneration = client.TextGeneration.load({ "id" => "test01" })
+puts textgeneration
 ```
 
 ### Use a custom fetch function
@@ -217,7 +222,7 @@ API path: `/api/`
 
 ### TextGeneration
 
-Create an instance: `const text_generation = client.text_generation`
+Create an instance: `text_generation = client.TextGeneration`
 
 #### Operations
 
@@ -227,8 +232,9 @@ Create an instance: `const text_generation = client.text_generation`
 
 #### Example: Load
 
-```ts
-const text_generation = await client.text_generation.load({ id: 'text_generation_id' })
+```ruby
+# load returns the bare TextGeneration record (raises on error).
+text_generation = client.TextGeneration.load({ "id" => "text_generation_id" })
 ```
 
 
@@ -303,7 +309,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-textgeneration = client.textgeneration
+textgeneration = client.TextGeneration
 textgeneration.load({ "id" => "example_id" })
 
 # textgeneration.data_get now returns the loaded textgeneration data

@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## TextGenerationEntity
 
 ```lua
-local text_generation = client:text_generation(nil)
+local text_generation = client:TextGeneration(nil)
 ```
 
 ### Operations
@@ -93,7 +93,7 @@ local text_generation = client:text_generation(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:text_generation():load({ id = "text_generation_id" })
+local result, err = client:TextGeneration():load({ id = "text_generation_id" })
 ```
 
 ### Common Methods

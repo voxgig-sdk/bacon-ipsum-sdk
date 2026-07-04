@@ -33,10 +33,12 @@ client = BaconIpsumSDK()
 
 ### 3. Load a textgeneration
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.textgeneration.load({"id": "example_id"})
-    print(result)
+    textgeneration = client.TextGeneration().load({"id": "example_id"})
+    print(textgeneration)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = BaconIpsumSDK.test()
 
-result = client.textgeneration.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+textgeneration = client.TextGeneration().load({"id": "test01"})
+# textgeneration contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -217,7 +220,7 @@ API path: `/api/`
 
 ### TextGeneration
 
-Create an instance: `const text_generation = client.text_generation`
+Create an instance: `text_generation = client.TextGeneration()`
 
 #### Operations
 
@@ -227,8 +230,8 @@ Create an instance: `const text_generation = client.text_generation`
 
 #### Example: Load
 
-```ts
-const text_generation = await client.text_generation.load({ id: 'text_generation_id' })
+```python
+text_generation = client.TextGeneration().load({"id": "text_generation_id"})
 ```
 
 
@@ -302,7 +305,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-textgeneration = client.textgeneration
+textgeneration = client.TextGeneration()
 textgeneration.load({"id": "example_id"})
 
 # textgeneration.data_get() now returns the loaded textgeneration data

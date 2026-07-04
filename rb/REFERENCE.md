@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## TextGenerationEntity
 
 ```ruby
-text_generation = client.text_generation
+text_generation = client.TextGeneration
 ```
 
 ### Operations
@@ -96,7 +96,7 @@ text_generation = client.text_generation
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.text_generation.load({ "id" => "text_generation_id" })
+result = client.TextGeneration.load({ "id" => "text_generation_id" })
 ```
 
 ### Common Methods

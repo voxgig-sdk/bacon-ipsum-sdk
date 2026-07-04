@@ -233,10 +233,10 @@ class BaconIpsumSDK
 
     private $_text_generation = null;
 
-    // Idiomatic facade: $client->text_generation()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TextGeneration() (PHP method
-    // names are case-insensitive).
-    public function text_generation($data = null)
+    // Canonical facade: $client->TextGeneration()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->text_generation()
+    // resolves here too.
+    public function TextGeneration($data = null)
     {
         require_once __DIR__ . '/entity/text_generation_entity.php';
         if ($data === null) {

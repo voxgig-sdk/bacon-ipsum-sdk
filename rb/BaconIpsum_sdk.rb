@@ -208,13 +208,7 @@ class BaconIpsumSDK
   end
 
 
-  # Idiomatic facade: client.text_generation.list / client.text_generation.load({ "id" => ... })
-  def text_generation
-    require_relative 'entity/text_generation_entity'
-    @text_generation ||= TextGenerationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.text_generation instead.
+  # Canonical facade: client.TextGeneration.list / client.TextGeneration.load({ "id" => ... })
   def TextGeneration(data = nil)
     require_relative 'entity/text_generation_entity'
     TextGenerationEntity.new(self, data)

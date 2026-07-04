@@ -204,14 +204,7 @@ class BaconIpsumSDK {
 
 
 
-  _text_generation?: TextGenerationEntity
-
-  // Idiomatic facade: `client.text_generation.list()` / `client.text_generation.load({ id })`.
-  get text_generation(): TextGenerationEntity {
-    return (this._text_generation ??= new TextGenerationEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.text_generation` instead. */
+  // Entity access: `client.TextGeneration().list()` / `client.TextGeneration().load({ id })`.
   TextGeneration(data?: any) {
     const self = this
     return new TextGenerationEntity(self,data)

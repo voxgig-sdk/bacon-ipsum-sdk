@@ -109,7 +109,7 @@ Alias for `BaconIpsumSDK.test()`.
 ## TextGenerationEntity
 
 ```ts
-const text_generation = client.text_generation
+const text_generation = client.TextGeneration()
 ```
 
 ### Operations
@@ -119,7 +119,7 @@ const text_generation = client.text_generation
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.text_generation.load({ id: 'text_generation_id' })
+const result = await client.TextGeneration().load({ id: 'text_generation_id' })
 ```
 
 ### Common Methods
