@@ -8,7 +8,7 @@ Complete API reference for the BaconIpsum Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'bacon-ipsum_sdk'
+require_relative 'BaconIpsum_sdk'
 
 client = BaconIpsumSDK.new(options)
 ```
@@ -96,7 +96,7 @@ text_generation = client.TextGeneration
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.TextGeneration.load({ "id" => "text_generation_id" })
+result = client.TextGeneration.load()
 ```
 
 ### Common Methods

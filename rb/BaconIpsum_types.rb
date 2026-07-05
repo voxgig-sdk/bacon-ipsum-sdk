@@ -12,7 +12,7 @@
 class TextGeneration
 end
 
-# Match filter for TextGeneration#load (any subset of TextGeneration fields).
+# Request payload for TextGeneration#load.
 class TextGenerationLoadMatch
 end
 

@@ -8,7 +8,7 @@ Complete API reference for the BaconIpsum PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/bacon-ipsum_sdk.php';
+require_once __DIR__ . '/baconipsum_sdk.php';
 
 $client = new BaconIpsumSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = BaconIpsumSDK::test();
 
 Create a new `TextGenerationEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): BaconIpsumUtility`
 
 Return a copy of the SDK utility object.
 
@@ -95,24 +95,24 @@ $text_generation = $client->TextGeneration();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->TextGeneration()->load(["id" => "text_generation_id"]);
+$result = $client->TextGeneration()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -121,7 +121,7 @@ Set the entity match criteria.
 Create a new `TextGenerationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

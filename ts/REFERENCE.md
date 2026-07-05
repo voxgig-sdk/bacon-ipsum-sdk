@@ -119,7 +119,7 @@ const text_generation = client.TextGeneration()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TextGeneration().load({ id: 'text_generation_id' })
+const result = await client.TextGeneration().load()
 ```
 
 ### Common Methods

@@ -8,5 +8,6 @@
 export interface TextGeneration {
 }
 
-export type TextGenerationLoadMatch = Partial<TextGeneration>
+export interface TextGenerationLoadMatch {
+}
 

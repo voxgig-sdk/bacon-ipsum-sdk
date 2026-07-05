@@ -100,7 +100,7 @@ text_generation := client.TextGeneration(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.TextGeneration(nil).Load(map[string]any{"id": "text_generation_id"}, nil)
+result, err := client.TextGeneration(nil).Load(nil, nil)
 ```
 
 ### Common Methods

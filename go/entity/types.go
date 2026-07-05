@@ -12,8 +12,7 @@ import "encoding/json"
 type TextGeneration struct {
 }
 
-// TextGenerationLoadMatch mirrors the text_generation fields as an all-optional match
-// filter (Go analog of Partial<TextGeneration>).
+// TextGenerationLoadMatch is the typed request payload for TextGeneration.LoadTyped.
 type TextGenerationLoadMatch struct {
 }
 

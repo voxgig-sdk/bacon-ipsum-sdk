@@ -93,7 +93,7 @@ local text_generation = client:TextGeneration(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TextGeneration():load({ id = "text_generation_id" })
+local result, err = client:TextGeneration():load()
 ```
 
 ### Common Methods

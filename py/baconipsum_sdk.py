@@ -221,7 +221,7 @@ class BaconIpsumSDK:
 
 
     def TextGeneration(self, data=None) -> "TextGenerationEntity":
-        """Entity factory: client.TextGeneration().list({}) / client.TextGeneration().load({"id": ...})."""
+        """Entity factory: client.TextGeneration().list() / client.TextGeneration().load({"id": ...})."""
         from entity.text_generation_entity import TextGenerationEntity
         return TextGenerationEntity(self, data)
 

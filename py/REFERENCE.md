@@ -8,7 +8,7 @@ Complete API reference for the BaconIpsum Python SDK.
 ### Constructor
 
 ```python
-from bacon-ipsum_sdk import BaconIpsumSDK
+from baconipsum_sdk import BaconIpsumSDK
 
 client = BaconIpsumSDK(options)
 ```
@@ -90,7 +90,7 @@ text_generation = client.TextGeneration()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.TextGeneration().load({"id": "text_generation_id"})
+result = client.TextGeneration().load()
 ```
 
 ### Common Methods
