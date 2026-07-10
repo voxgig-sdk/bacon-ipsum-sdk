@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## TextGenerationEntity
 
 ```go
-text_generation := client.TextGeneration(nil)
+textGeneration := client.TextGeneration(nil)
+fmt.Println(textGeneration.GetName()) // "text_generation"
 ```
 
 ### Operations
@@ -101,6 +102,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.TextGeneration(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single textgeneration — the value is the loaded record.
-    textgeneration, err := client.TextGeneration(nil).Load(nil, nil)
+    // Load a single textGeneration — the value is the loaded record.
+    textGeneration, err := client.TextGeneration(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(textgeneration)
+    fmt.Println(textGeneration)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-textgeneration, err := client.TextGeneration(nil).Load(
+textGeneration, err := client.TextGeneration(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(textgeneration) // the returned mock data
+fmt.Println(textGeneration) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    textgeneration, err := client.TextGeneration(nil).Load(nil, nil)
+    textGeneration, err := client.TextGeneration(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // textgeneration is the returned record
+    // textGeneration is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -270,7 +270,7 @@ API path: `/api/`
 
 ### TextGeneration
 
-Create an instance: `text_generation := client.TextGeneration(nil)`
+Create an instance: `textGeneration := client.TextGeneration(nil)`
 
 #### Operations
 
@@ -281,11 +281,11 @@ Create an instance: `text_generation := client.TextGeneration(nil)`
 #### Example: Load
 
 ```go
-text_generation, err := client.TextGeneration(nil).Load(nil, nil)
+textGeneration, err := client.TextGeneration(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(text_generation) // the loaded record
+fmt.Println(textGeneration) // the loaded record
 ```
 
 

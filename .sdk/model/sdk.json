@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -251,14 +248,17 @@
           "url": "https://baconipsum.com/json-api/"
         },
         "description": "The Bacon Ipsum JSON API is a REST interface for generating meaty lorem ipsum text that can be utilized by any application. Users can specify parameters such as type of text, number of paragraphs, and format to get tailored responses.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://baconipsum.com"
           }
         ],
+        "summary": "The Bacon Ipsum JSON API is a REST interface for generating meaty lorem ipsum text that can be utilized by any application.",
         "title": "Bacon Ipsum API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://baconipsum.com/json-api/"
       },
       "option": {},
       "target": {
@@ -311,6 +311,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -361,6 +364,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
