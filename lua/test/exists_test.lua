@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- BaconIpsum SDK exists test
 
 local sdk = require("bacon-ipsum_sdk")
 
