@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = BaconIpsumSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = BaconIpsumSDK.test({
+  entity: {
+    text_generation: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const textgeneration = await client.TextGeneration().load()
-// textgeneration is a bare TextGeneration populated with mock data
+// textgeneration is the TextGeneration entity, populated with mock data
+// — call textgeneration.data() for the record itself
 console.log(textgeneration)
 ```
 
@@ -182,7 +191,7 @@ require_once 'baconipsum_sdk.php';
 $client = new BaconIpsumSDK();
 
 
-// Load a specific textgeneration (returns the bare record; throws on error)
+// Load a specific textgeneration (returns the ENTITY; call data_get() for the record; throws on error)
 $textgeneration = $client->TextGeneration()->load();
 print_r($textgeneration);
 ```
@@ -210,7 +219,7 @@ require_relative "BaconIpsum_sdk"
 client = BaconIpsumSDK.new
 
 
-# Load a specific textgeneration (returns the bare record; raises on error)
+# Load a specific textgeneration (returns the ENTITY; call data_get for the record)
 textgeneration = client.TextGeneration.load()
 puts textgeneration
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://baconipsum.com/json-api/](https://baconipsum.com/json-api/)
 

@@ -43,8 +43,8 @@ class BaconIpsumTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('BACONIPSUM_TEST_LIVE');
-        $override = self::getenv('BACONIPSUM_TEST_OVERRIDE');
+        $live = self::getenv('BACON_IPSUM_TEST_LIVE');
+        $override = self::getenv('BACON_IPSUM_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class BaconIpsumTestRunner
             }
         }
 
-        $explain = self::getenv('BACONIPSUM_TEST_EXPLAIN');
+        $explain = self::getenv('BACON_IPSUM_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['BACONIPSUM_TEST_EXPLAIN'] = $explain;
+            $m['BACON_IPSUM_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

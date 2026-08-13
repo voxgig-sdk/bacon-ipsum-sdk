@@ -94,6 +94,7 @@ class BaconIpsumConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/',
                   'parts' => [

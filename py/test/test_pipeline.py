@@ -16,11 +16,11 @@
 import pytest
 
 from baconipsum_sdk import BaconIpsumSDK
-from core.error import BaconIpsumError
-from core.result import BaconIpsumResult
-from core.response import BaconIpsumResponse
-from core.spec import BaconIpsumSpec
-from feature.base_feature import BaconIpsumBaseFeature
+from baconipsum_sdk.core.error import BaconIpsumError
+from baconipsum_sdk.core.result import BaconIpsumResult
+from baconipsum_sdk.core.response import BaconIpsumResponse
+from baconipsum_sdk.core.spec import BaconIpsumSpec
+from baconipsum_sdk.feature.base_feature import BaconIpsumBaseFeature
 
 
 def _client():

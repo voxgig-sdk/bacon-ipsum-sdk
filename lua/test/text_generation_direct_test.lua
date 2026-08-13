@@ -60,11 +60,11 @@ function text_generation_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["BACONIPSUM_TEST_TEXT_GENERATION_ENTID"] = {},
-    ["BACONIPSUM_TEST_LIVE"] = "FALSE",
+    ["BACON_IPSUM_TEST_TEXT_GENERATION_ENTID"] = {},
+    ["BACON_IPSUM_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["BACONIPSUM_TEST_LIVE"] == "TRUE"
+  local live = env["BACON_IPSUM_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ BaconIpsumUtility::setRegistrar(function (BaconIpsumUtility $u): void {
     $u->prepare_params = [BaconIpsumPrepareParams::class, 'call'];
     $u->prepare_path = [BaconIpsumPreparePath::class, 'call'];
     $u->prepare_query = [BaconIpsumPrepareQuery::class, 'call'];
+    $u->graphql_body = [BaconIpsumGraphql::class, 'body'];
+    $u->graphql_errors = [BaconIpsumGraphql::class, 'errors'];
     $u->result_basic = [BaconIpsumResultBasic::class, 'call'];
     $u->result_body = [BaconIpsumResultBody::class, 'call'];
     $u->result_headers = [BaconIpsumResultHeaders::class, 'call'];

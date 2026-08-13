@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import BaconIpsumControl
-from core.error import BaconIpsumError
-from core.result import BaconIpsumResult
-from core.spec import BaconIpsumSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import BaconIpsumControl
+from projectname_sdk.core.error import BaconIpsumError
+from projectname_sdk.core.result import BaconIpsumResult
+from projectname_sdk.core.spec import BaconIpsumSpec
 
 
 # True when this SDK was generated with the named feature.

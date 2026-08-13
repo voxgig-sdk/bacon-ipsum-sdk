@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = BaconIpsumSDK.test()
 
 const textgeneration = await client.TextGeneration().load()
-// textgeneration is a bare entity populated with mock response data
+// textgeneration is the entity, populated with mock response data
+// — call textgeneration.data() for the record itself
 console.log(textgeneration)
 ```
 

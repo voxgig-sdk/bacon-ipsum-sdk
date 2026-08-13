@@ -34,7 +34,7 @@ client = BaconIpsumSDK.new
 
 ```ruby
 begin
-  # load returns the bare TextGeneration record (raises on error).
+  # load returns the ENTITY — call data_get for the TextGeneration record (raises on error).
   textgeneration = client.TextGeneration.load()
   puts textgeneration
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = BaconIpsumSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 textgeneration = client.TextGeneration.load()
 puts textgeneration
 ```
@@ -257,7 +258,7 @@ Create an instance: `text_generation = client.TextGeneration`
 #### Example: Load
 
 ```ruby
-# load returns the bare TextGeneration record (raises on error).
+# load returns the ENTITY — call data_get for the TextGeneration record (raises on error).
 text_generation = client.TextGeneration.load()
 ```
 

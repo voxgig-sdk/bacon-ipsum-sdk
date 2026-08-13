@@ -65,11 +65,11 @@ function text_generation_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "BACONIPSUM_TEST_TEXT_GENERATION_ENTID" => [],
-        "BACONIPSUM_TEST_LIVE" => "FALSE",
+        "BACON_IPSUM_TEST_TEXT_GENERATION_ENTID" => [],
+        "BACON_IPSUM_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["BACONIPSUM_TEST_LIVE"] === "TRUE";
+    $live = $env["BACON_IPSUM_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

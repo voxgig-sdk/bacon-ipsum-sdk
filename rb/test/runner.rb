@@ -23,8 +23,8 @@ module BaconIpsumTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("BACONIPSUM_TEST_LIVE")
-    override = getenv("BACONIPSUM_TEST_OVERRIDE")
+    live = getenv("BACON_IPSUM_TEST_LIVE")
+    override = getenv("BACON_IPSUM_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module BaconIpsumTestRunner
       end
     end
 
-    explain = getenv("BACONIPSUM_TEST_EXPLAIN")
-    m["BACONIPSUM_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("BACON_IPSUM_TEST_EXPLAIN")
+    m["BACON_IPSUM_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

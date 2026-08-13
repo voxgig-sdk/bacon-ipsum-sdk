@@ -26,8 +26,8 @@ import {
 describe('TextGenerationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BACONIPSUM_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BACONIPSUM_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BACON_IPSUM_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BACON_IPSUM_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = BaconIpsumSDK.test()
@@ -62,7 +62,7 @@ describe('TextGenerationEntity', async () => {
     // LOAD
     const text_generation_ref01_ent = client.TextGeneration()
     const text_generation_ref01_match_dt0: any = {}
-    const text_generation_ref01_data_dt0 = await text_generation_ref01_ent.load(text_generation_ref01_match_dt0)
+    const text_generation_ref01_data_dt0 = (await text_generation_ref01_ent.load(text_generation_ref01_match_dt0)).data()
     assert(null != text_generation_ref01_data_dt0)
 
 

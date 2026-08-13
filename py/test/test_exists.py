@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# BaconIpsum SDK exists test
 
 import pytest
 from baconipsum_sdk import BaconIpsumSDK

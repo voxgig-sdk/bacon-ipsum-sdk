@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from baconipsum_sdk.utility.voxgig_struct import voxgig_struct as vs
 from baconipsum_sdk import BaconIpsumSDK
-from core import helpers
+from baconipsum_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _text_generation_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "BACONIPSUM_TEST_TEXT_GENERATION_ENTID": {},
-        "BACONIPSUM_TEST_LIVE": "FALSE",
+        "BACON_IPSUM_TEST_TEXT_GENERATION_ENTID": {},
+        "BACON_IPSUM_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("BACONIPSUM_TEST_LIVE") == "TRUE"
+    live = env.get("BACON_IPSUM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
