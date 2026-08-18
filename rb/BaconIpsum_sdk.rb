@@ -28,7 +28,7 @@ class BaconIpsumSDK
     utility = BaconIpsumUtility.new
     @_utility = utility
 
-    config = BaconIpsumConfig.make_config
+    config = BaconIpsumConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

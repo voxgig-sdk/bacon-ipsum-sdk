@@ -40,7 +40,7 @@ class BaconIpsumSDK
         $utility = new BaconIpsumUtility();
         $this->_utility = $utility;
 
-        $config = BaconIpsumConfig::make_config();
+        $config = BaconIpsumConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -1,5 +1,8 @@
 -- BaconIpsum SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -31,59 +34,46 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "callback",
                       ["orig"] = "callback",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "json",
                       ["kind"] = "query",
                       ["name"] = "format",
                       ["orig"] = "format",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 5,
                       ["kind"] = "query",
                       ["name"] = "para",
                       ["orig"] = "para",
-                      ["reqd"] = false,
                       ["type"] = "`$INTEGER`",
                     },
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "sentence",
                       ["orig"] = "sentence",
-                      ["reqd"] = false,
                       ["type"] = "`$INTEGER`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 0,
                       ["kind"] = "query",
                       ["name"] = "start_with_lorem",
                       ["orig"] = "start_with_lorem",
-                      ["reqd"] = false,
                       ["type"] = "`$INTEGER`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "meat-and-filler",
                       ["kind"] = "query",
                       ["name"] = "type",
                       ["orig"] = "type",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -108,10 +98,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

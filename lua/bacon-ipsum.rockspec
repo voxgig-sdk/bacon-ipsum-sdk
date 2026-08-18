@@ -23,6 +23,7 @@ build = {
   modules = {
     ["bacon-ipsum_sdk"] = "bacon-ipsum_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
