@@ -19,6 +19,9 @@ module BaconIpsumConfig
     {
       "main" => {
         "name" => "BaconIpsum",
+        "slug" => "bacon-ipsum",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
