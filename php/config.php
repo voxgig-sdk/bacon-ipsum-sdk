@@ -42,6 +42,7 @@ class BaconIpsumConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
