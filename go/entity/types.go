@@ -18,6 +18,12 @@ type TextGeneration struct {
 
 // TextGenerationLoadMatch is the typed request payload for TextGeneration.LoadTyped.
 type TextGenerationLoadMatch struct {
+	Callback *string `json:"callback,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Para *int `json:"para,omitempty"`
+	Sentence *int `json:"sentence,omitempty"`
+	StartWithLorem *int `json:"start_with_lorem,omitempty"`
+	Type *string `json:"type,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

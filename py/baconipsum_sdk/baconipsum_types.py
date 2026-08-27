@@ -20,5 +20,10 @@ class TextGeneration(TypedDict):
     pass
 
 
-class TextGenerationLoadMatch(TypedDict):
-    pass
+class TextGenerationLoadMatch(TypedDict, total=False):
+    callback: str
+    format: str
+    para: int
+    sentence: int
+    start_with_lorem: int
+    type: str

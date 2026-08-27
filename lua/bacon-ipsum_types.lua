@@ -9,6 +9,12 @@
 ---@class TextGeneration
 
 ---@class TextGenerationLoadMatch
+---@field callback? string
+---@field format? string
+---@field para? number
+---@field sentence? number
+---@field start_with_lorem? number
+---@field type? string
 
 local M = {}
 

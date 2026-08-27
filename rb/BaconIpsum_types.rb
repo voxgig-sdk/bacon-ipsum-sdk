@@ -13,6 +13,31 @@ class TextGeneration
 end
 
 # Request payload for TextGeneration#load.
-class TextGenerationLoadMatch
-end
+#
+# @!attribute [rw] callback
+#   @return [String, nil]
+#
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] para
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sentence
+#   @return [Integer, nil]
+#
+# @!attribute [rw] start_with_lorem
+#   @return [Integer, nil]
+#
+# @!attribute [rw] type
+#   @return [String, nil]
+TextGenerationLoadMatch = Struct.new(
+  :callback,
+  :format,
+  :para,
+  :sentence,
+  :start_with_lorem,
+  :type,
+  keyword_init: true
+)
 

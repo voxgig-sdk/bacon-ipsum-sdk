@@ -20,5 +20,11 @@ class TextGeneration
 /** Request payload for TextGeneration#load. */
 class TextGenerationLoadMatch
 {
+    public ?string $callback = null;
+    public ?string $format = null;
+    public ?int $para = null;
+    public ?int $sentence = null;
+    public ?int $start_with_lorem = null;
+    public ?string $type = null;
 }
 
