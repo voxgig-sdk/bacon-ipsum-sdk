@@ -62,8 +62,10 @@ main: kit: entity: text_generation: {
           }
           method: "GET"
           orig: "/api/"
-          parts: [
-            "api"
+          segments: [
+            {
+              lit: "api"
+            }
           ]
           select: {
             exist: [

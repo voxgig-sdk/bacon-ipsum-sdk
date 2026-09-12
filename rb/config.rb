@@ -97,8 +97,10 @@ module BaconIpsumConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/",
-                  "parts" => [
-                    "api",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -114,6 +116,9 @@ module BaconIpsumConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                  ],
                 },
               ],
             },
