@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum'
+import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum-sdk'
 
 const client = new BaconIpsumSDK()
 ```
@@ -394,7 +394,7 @@ bacon-ipsum/
 Import the SDK from the package root:
 
 ```ts
-import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum'
+import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum-sdk'
 ```
 
 ### Entity state

@@ -105,7 +105,7 @@ local result, err = client:TextGeneration():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
+| TypeScript | `@voxgig-sdk/bacon-ipsum-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
 | Python | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
 | PHP | `voxgig-sdk/bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/bacon-ipsum-sdk/go` | `go get github.com/voxgig-sdk/bacon-ipsum-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:TextGeneration():load()
 ### TypeScript
 
 ```ts
-import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum'
+import { BaconIpsumSDK } from '@voxgig-sdk/bacon-ipsum-sdk'
 
 const client = new BaconIpsumSDK()
 
