@@ -16,5 +16,158 @@
     "text_generation": {
       "text_generation_ref01": {}
     }
+  },
+  "requests": {
+    "GET /api/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "generateBaconIpsum",
+        "parameters": [
+          {
+            "description": "Type of text generation: 'all-meat' for meat only or 'meat-and-filler' for meat mixed with miscellaneous lorem ipsum filler",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "default": "meat-and-filler",
+              "enum": [
+                "all-meat",
+                "meat-and-filler"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of paragraphs to generate",
+            "in": "query",
+            "name": "paras",
+            "required": false,
+            "schema": {
+              "default": 5,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of sentences to generate (this overrides the paras parameter)",
+            "in": "query",
+            "name": "sentences",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Pass 1 to start the first paragraph with 'Bacon ipsum dolor sit amet'",
+            "in": "query",
+            "name": "start-with-lorem",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ],
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Output format for the generated text",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "default": "json",
+              "enum": [
+                "json",
+                "text",
+                "html"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "JSONP callback function name",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "jsonFormat": {
+                    "summary": "JSON format response",
+                    "value": [
+                      "Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.",
+                      "Shankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage.",
+                      "Bresaola andouille pork loin fatback, chuck short loin tri-tip ham hock venison beef hamburger pork chop."
+                    ]
+                  },
+                  "meatAndFiller": {
+                    "summary": "Meat and filler type",
+                    "value": [
+                      "Bacon ipsum dolor sit amet beef ribs chuck turkey, prosciutto ham hock venison lorem dolor.",
+                      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    ]
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "description": "Array of paragraphs when format is 'json'",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "description": "Plain text string when format is 'text' or 'html'",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "text/html": {
+                "example": "<p>Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.</p><p>Shankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage.</p>",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "example": "Bacon ipsum dolor sit amet tenderloin ham hock beef ribs, pork chop shoulder strip steak turducken spare ribs tail tri-tip.\n\nShankle biltong chicken pancetta, spare ribs pork belly drumstick ham hock ground round short ribs sausage.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Successfully generated bacon ipsum text"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters provided"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

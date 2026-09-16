@@ -1,12 +1,18 @@
 # BaconIpsum SDK feature factory
 
 from baconipsum_sdk.feature.base_feature import BaconIpsumBaseFeature
+from baconipsum_sdk.feature.ratelimit_feature import BaconIpsumRatelimitFeature
+from baconipsum_sdk.feature.retry_feature import BaconIpsumRetryFeature
 from baconipsum_sdk.feature.test_feature import BaconIpsumTestFeature
+from baconipsum_sdk.feature.timeout_feature import BaconIpsumTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: BaconIpsumBaseFeature(),
+    "ratelimit": lambda: BaconIpsumRatelimitFeature(),
+    "retry": lambda: BaconIpsumRetryFeature(),
     "test": lambda: BaconIpsumTestFeature(),
+    "timeout": lambda: BaconIpsumTimeoutFeature(),
 }
 
 
