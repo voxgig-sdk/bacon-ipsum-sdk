@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      text_generation: {
-      },
-
+        text_generation: {
+        },
+  
     }
   }
 

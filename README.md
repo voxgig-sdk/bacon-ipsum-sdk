@@ -105,12 +105,12 @@ local result, err = client:TextGeneration():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/bacon-ipsum-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
-| Python | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
-| PHP | `voxgig-sdk/bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
+| TypeScript | `@voxgig-sdk/bacon-ipsum-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/tags) |
+| Python | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/tags) |
+| PHP | `voxgig-sdk/bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/bacon-ipsum-sdk/go` | `go get github.com/voxgig-sdk/bacon-ipsum-sdk/go@latest` |
-| Ruby | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
-| Lua | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases) |
+| Ruby | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/tags) |
+| Lua | `voxgig-sdk-bacon-ipsum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bacon-ipsum-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/bacon-ipsum-sdk/go-cli` | `go install github.com/voxgig-sdk/bacon-ipsum-sdk/go-cli/cmd/bacon-ipsum@latest` |
 | Go MCP server | `github.com/voxgig-sdk/bacon-ipsum-sdk/go-mcp` | `go get github.com/voxgig-sdk/bacon-ipsum-sdk/go-mcp@latest` |
 
