@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -144,50 +137,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "callback",
-                    "orig": "callback",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 5,
-                    "kind": "query",
-                    "name": "para",
-                    "orig": "para",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "sentence",
-                    "orig": "sentence",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "start_with_lorem",
-                    "orig": "start_with_lorem",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "meat-and-filler",
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/",
@@ -196,6 +145,58 @@ class Config {
                   "lit": "api"
                 }
               ],
+              "parts": [
+                "api"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "callback",
+                    "orig": "callback",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  },
+                  {
+                    "name": "para",
+                    "orig": "para",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 5
+                  },
+                  {
+                    "name": "sentence",
+                    "orig": "sentence",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "start_with_lorem",
+                    "orig": "start_with_lorem",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "meat-and-filler"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "callback",
@@ -205,14 +206,7 @@ class Config {
                   "start_with_lorem",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "api"
-              ]
+              }
             }
           ]
         }

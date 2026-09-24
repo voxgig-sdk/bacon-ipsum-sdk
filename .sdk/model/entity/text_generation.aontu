@@ -1,0 +1,99 @@
+# Entity: text_generation
+
+main: kit: entity: text_generation: {
+
+  alias: field: {}
+
+  name: "text_generation"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 5
+                k: "query"
+                n: "para"
+                or: "para"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sentence"
+                or: "sentence"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "start_with_lorem"
+                or: "start_with_lorem"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "meat-and-filler"
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/"
+          q: {
+            exist: [
+              "callback"
+              "format"
+              "para"
+              "sentence"
+              "start_with_lorem"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

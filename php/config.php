@@ -118,56 +118,64 @@ class BaconIpsumConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'callback',
-                        'orig' => 'callback',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 'json',
-                        'kind' => 'query',
-                        'name' => 'format',
-                        'orig' => 'format',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 5,
-                        'kind' => 'query',
-                        'name' => 'para',
-                        'orig' => 'para',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'sentence',
-                        'orig' => 'sentence',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'start_with_lorem',
-                        'orig' => 'start_with_lorem',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 'meat-and-filler',
-                        'kind' => 'query',
-                        'name' => 'type',
-                        'orig' => 'type',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/',
                   'segments' => [
                     [
                       'lit' => 'api',
+                    ],
+                  ],
+                  'parts' => [
+                    'api',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'callback',
+                        'orig' => 'callback',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'format',
+                        'orig' => 'format',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => 'json',
+                      ],
+                      [
+                        'name' => 'para',
+                        'orig' => 'para',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 5,
+                      ],
+                      [
+                        'name' => 'sentence',
+                        'orig' => 'sentence',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'start_with_lorem',
+                        'orig' => 'start_with_lorem',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                      [
+                        'name' => 'type',
+                        'orig' => 'type',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => 'meat-and-filler',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -179,13 +187,6 @@ class BaconIpsumConfig
                       'start_with_lorem',
                       'type',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'api',
                   ],
                 ],
               ],

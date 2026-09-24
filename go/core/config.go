@@ -96,56 +96,64 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "callback",
-											"orig": "callback",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 5,
-											"kind": "query",
-											"name": "para",
-											"orig": "para",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "sentence",
-											"orig": "sentence",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "start_with_lorem",
-											"orig": "start_with_lorem",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "meat-and-filler",
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/",
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
+									},
+								},
+								"parts": []any{
+									"api",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "callback",
+											"orig": "callback",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "para",
+											"orig": "para",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 5,
+										},
+										map[string]any{
+											"name": "sentence",
+											"orig": "sentence",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "start_with_lorem",
+											"orig": "start_with_lorem",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "meat-and-filler",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -157,13 +165,6 @@ func MakeConfig() map[string]any {
 										"start_with_lorem",
 										"type",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"api",
 								},
 							},
 						},
