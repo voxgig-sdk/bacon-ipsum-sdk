@@ -129,20 +129,20 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "para",
-											"orig": "para",
+											"orig": "paras",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 5,
 										},
 										map[string]any{
 											"name": "sentence",
-											"orig": "sentence",
+											"orig": "sentences",
 											"type": "`$INTEGER`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "start_with_lorem",
-											"orig": "start_with_lorem",
+											"orig": "start-with-lorem",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 0,

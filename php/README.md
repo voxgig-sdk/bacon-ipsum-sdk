@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases](https://github.com/voxgig-sdk/bacon-ipsum-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/bacon-ipsum-sdk
+composer config repositories.bacon-ipsum-sdk path ./bacon-ipsum-sdk/php
+composer require voxgig-sdk/bacon-ipsum-sdk:@dev
+```
 
 
 ## Tutorial: your first API call

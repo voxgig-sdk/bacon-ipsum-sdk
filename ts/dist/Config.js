@@ -145,20 +145,20 @@ class Config {
                                     },
                                     {
                                         "name": "para",
-                                        "orig": "para",
+                                        "orig": "paras",
                                         "type": "`$INTEGER`",
                                         "kind": "query",
                                         "example": 5
                                     },
                                     {
                                         "name": "sentence",
-                                        "orig": "sentence",
+                                        "orig": "sentences",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "start_with_lorem",
-                                        "orig": "start_with_lorem",
+                                        "orig": "start-with-lorem",
                                         "type": "`$INTEGER`",
                                         "kind": "query",
                                         "example": 0

@@ -134,7 +134,7 @@
                         "ex": 5,
                         "k": "query",
                         "n": "para",
-                        "or": "para",
+                        "or": "paras",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -142,7 +142,7 @@
                         "a": true,
                         "k": "query",
                         "n": "sentence",
-                        "or": "sentence",
+                        "or": "sentences",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -151,7 +151,7 @@
                         "ex": 0,
                         "k": "query",
                         "n": "start_with_lorem",
-                        "or": "start_with_lorem",
+                        "or": "start-with-lorem",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -673,7 +673,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

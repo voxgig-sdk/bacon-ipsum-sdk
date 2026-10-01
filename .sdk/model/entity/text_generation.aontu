@@ -36,14 +36,14 @@ main: kit: entity: text_generation: {
                 ex: 5
                 k: "query"
                 n: "para"
-                or: "para"
+                or: "paras"
                 r: false
                 t: "`$INTEGER`"
               }
               {
                 k: "query"
                 n: "sentence"
-                or: "sentence"
+                or: "sentences"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -51,7 +51,7 @@ main: kit: entity: text_generation: {
                 ex: 0
                 k: "query"
                 n: "start_with_lorem"
-                or: "start_with_lorem"
+                or: "start-with-lorem"
                 r: false
                 t: "`$INTEGER`"
               }

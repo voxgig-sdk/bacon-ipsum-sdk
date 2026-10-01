@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 BaconIpsumUtility::setRegistrar(function (BaconIpsumUtility $u): void {
     $u->clean = [BaconIpsumClean::class, 'call'];
+    $u->clean_add = [BaconIpsumClean::class, 'add'];
+    $u->clean_explain = [BaconIpsumDone::class, 'clean_explain'];
     $u->done = [BaconIpsumDone::class, 'call'];
     $u->make_error = [BaconIpsumMakeError::class, 'call'];
     $u->feature_add = [BaconIpsumFeatureAdd::class, 'call'];

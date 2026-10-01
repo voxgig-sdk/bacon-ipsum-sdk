@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 BaconIpsumUtility.registrar = ->(u) {
   u.clean = BaconIpsumUtilities::Clean
+  u.clean_add = BaconIpsumUtilities::CleanAdd
+  u.clean_explain = BaconIpsumUtilities::CleanExplain
   u.done = BaconIpsumUtilities::Done
   u.make_error = BaconIpsumUtilities::MakeError
   u.feature_add = BaconIpsumUtilities::FeatureAdd
