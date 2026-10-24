@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -156,15 +157,20 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"callback",
-										"format",
-										"para",
-										"sentence",
-										"start_with_lorem",
-										"type",
+								"select": map[string]any{},
+								"response": map[string]any{
+									"alternatives": []any{
+										map[string]any{
+											"kind": "raw",
+											"media": "text/html",
+										},
+										map[string]any{
+											"kind": "raw",
+											"media": "text/plain",
+										},
 									},
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

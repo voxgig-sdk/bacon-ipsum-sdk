@@ -67,15 +67,19 @@ main: kit: entity: text_generation: {
           }
           m: "GET"
           o: "/api/"
-          q: {
-            exist: [
-              "callback"
-              "format"
-              "para"
-              "sentence"
-              "start_with_lorem"
-              "type"
+          rs: {
+            alternatives: [
+              {
+                kind: "raw"
+                media: "text/html"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
             ]
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

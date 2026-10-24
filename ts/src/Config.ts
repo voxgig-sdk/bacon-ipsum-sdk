@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -197,15 +198,20 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "callback",
-                  "format",
-                  "para",
-                  "sentence",
-                  "start_with_lorem",
-                  "type"
-                ]
+              "select": {},
+              "response": {
+                "alternatives": [
+                  {
+                    "kind": "raw",
+                    "media": "text/html"
+                  },
+                  {
+                    "kind": "raw",
+                    "media": "text/plain"
+                  }
+                ],
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]

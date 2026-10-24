@@ -3,5 +3,12 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successfully generated bacon ipsum text",
+      "The Bacon Ipsum JSON API is a REST interface for generating meaty lorem ipsum text that can be utilized by any application. Users can specify parameters such as type of text, number of paragraphs, and format to get tailored responses."
+    ]
+  }
 }

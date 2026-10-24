@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { BaconIpsumSDK, BaseFeature, stdutil } from '../../..'
+import { BaconIpsumSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('TextGenerationEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = BaconIpsumSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.TextGeneration().load({"callback":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.BACON_IPSUM_TEST_LIVE
@@ -51,7 +63,7 @@ describe('TextGenerationEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"text_generation","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /api/","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"callback","or":"callback","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":5,"k":"query","n":"para","or":"paras","r":false,"t":"`$INTEGER`","index$":2},{"a":true,"k":"query","n":"sentence","or":"sentences","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"ex":0,"k":"query","n":"start_with_lorem","or":"start-with-lorem","r":false,"t":"`$INTEGER`","index$":4},{"a":true,"ex":"meat-and-filler","k":"query","n":"type","or":"type","r":false,"t":"`$STRING`","index$":5}]},"k":"http","m":"GET","o":"/api/","q":{"exist":["callback","format","para","sentence","start_with_lorem","type"]},"r":{},"s":[{"lit":"api"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"text_generation","name__orig":"text_generation","Name":"TextGeneration","name_":"text_generation","name-":"text-generation","NAME":"TEXT_GENERATION","index$":0}, {"active":true,"entity":"text_generation","key$":"BasicTextGenerationFlow","kind":"basic","name":"BasicTextGenerationFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"text_generation_ref01","srcdatavar":"text_generation_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-text_generation_ref01"}}],"index$":0}]}, 'TextGeneration', {"GET /api/":{"protocol":"http","parameters":[{"name":"type","in":"query","description":"Type of text generation: 'all-meat' for meat only or 'meat-and-filler' for meat mixed with miscellaneous lorem ipsum filler","required":false,"schema":{"type":"string","enum":["all-meat","meat-and-filler"],"default":"meat-and-filler"},"index$":0},{"name":"paras","in":"query","description":"Number of paragraphs to generate","required":false,"schema":{"type":"integer","default":5,"minimum":1},"index$":1},{"name":"sentences","in":"query","description":"Number of sentences to generate (this overrides the paras parameter)","required":false,"schema":{"type":"integer","minimum":1},"index$":2},{"name":"start-with-lorem","in":"query","description":"Pass 1 to start the first paragraph with 'Bacon ipsum dolor sit amet'","required":false,"schema":{"type":"integer","enum":[0,1],"default":0},"index$":3},{"name":"format","in":"query","description":"Output format for the generated text","required":false,"schema":{"type":"string","enum":["json","text","html"],"default":"json"},"index$":4},{"name":"callback","in":"query","description":"JSONP callback function name","required":false,"schema":{"type":"string"},"index$":5}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"text_generation","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /api/","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"callback","or":"callback","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":5,"k":"query","n":"para","or":"paras","r":false,"t":"`$INTEGER`","index$":2},{"a":true,"k":"query","n":"sentence","or":"sentences","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"ex":0,"k":"query","n":"start_with_lorem","or":"start-with-lorem","r":false,"t":"`$INTEGER`","index$":4},{"a":true,"ex":"meat-and-filler","k":"query","n":"type","or":"type","r":false,"t":"`$STRING`","index$":5}]},"k":"http","m":"GET","o":"/api/","q":{},"r":{},"rs":{"alternatives":[{"kind":"raw","media":"text/html"},{"kind":"raw","media":"text/plain"}],"kind":"json","media":"application/json"},"s":[{"lit":"api"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"text_generation","name__orig":"text_generation","Name":"TextGeneration","name_":"text_generation","name-":"text-generation","NAME":"TEXT_GENERATION","index$":0}, {"active":true,"entity":"text_generation","key$":"BasicTextGenerationFlow","kind":"basic","name":"BasicTextGenerationFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"text_generation_ref01","srcdatavar":"text_generation_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-text_generation_ref01"}}],"index$":0}]}, 'TextGeneration', {"GET /api/":{"protocol":"http","parameters":[{"name":"type","in":"query","description":"Type of text generation: 'all-meat' for meat only or 'meat-and-filler' for meat mixed with miscellaneous lorem ipsum filler","required":false,"schema":{"type":"string","enum":["all-meat","meat-and-filler"],"default":"meat-and-filler"},"index$":0},{"name":"paras","in":"query","description":"Number of paragraphs to generate","required":false,"schema":{"type":"integer","default":5,"minimum":1},"index$":1},{"name":"sentences","in":"query","description":"Number of sentences to generate (this overrides the paras parameter)","required":false,"schema":{"type":"integer","minimum":1},"index$":2},{"name":"start-with-lorem","in":"query","description":"Pass 1 to start the first paragraph with 'Bacon ipsum dolor sit amet'","required":false,"schema":{"type":"integer","enum":[0,1],"default":0},"index$":3},{"name":"format","in":"query","description":"Output format for the generated text","required":false,"schema":{"type":"string","enum":["json","text","html"],"default":"json"},"index$":4},{"name":"callback","in":"query","description":"JSONP callback function name","required":false,"schema":{"type":"string"},"index$":5}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('TextGenerationEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

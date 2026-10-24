@@ -17,13 +17,19 @@ const PLAN = [
         "args": [],
         "select": {
             "callback": "v1",
-            "format": "v1",
-            "para": "v1",
+            "format": "json",
+            "para": 5,
             "sentence": "v1",
-            "start_with_lorem": "v1",
-            "type": "v1"
+            "start_with_lorem": 0,
+            "type": "meat-and-filler"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json",
+            "text/plain",
+            "text/html"
+        ],
         "query": [
             "type",
             "paras",
@@ -31,6 +37,32 @@ const PLAN = [
             "start-with-lorem",
             "format",
             "callback"
+        ],
+        "queryArgs": [
+            {
+                "name": "callback",
+                "wire": "callback"
+            },
+            {
+                "name": "format",
+                "wire": "format"
+            },
+            {
+                "name": "para",
+                "wire": "paras"
+            },
+            {
+                "name": "sentence",
+                "wire": "sentences"
+            },
+            {
+                "name": "start_with_lorem",
+                "wire": "start-with-lorem"
+            },
+            {
+                "name": "type",
+                "wire": "type"
+            }
         ],
         "auth": null,
         "status": 200,

@@ -12,6 +12,8 @@ type BaconIpsumError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewBaconIpsumError(code string, msg string, ctx *Context) *BaconIpsumError {
@@ -21,7 +23,12 @@ func NewBaconIpsumError(code string, msg string, ctx *Context) *BaconIpsumError 
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *BaconIpsumError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *BaconIpsumError) Error() string {
@@ -35,6 +42,7 @@ func (e *BaconIpsumError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}
